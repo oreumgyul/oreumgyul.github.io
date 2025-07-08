@@ -3,7 +3,7 @@
 
 :root{
   --accent:#ff7a5c;
-  --bg-grad:#000;                 /* 검정 배경 */
+  --bg-grad:#000;   /* 검정 배경 */
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -42,7 +42,7 @@ nav a:hover::after{width:100%;}
 /* ===== 히어로 & 배경 영상 ===== */
 .hero{
   position:relative;
-  flex:1;
+  height:100vh;                 /* 화면 1장만 사용 */
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -103,14 +103,14 @@ nav a:hover::after{width:100%;}
   max-width:1200px;
   margin:0 auto;
 }
-.grid img{
+.grid video{
   width:100%;
   aspect-ratio:16/9;
   object-fit:cover;
   border-radius:12px;
   transition:.3s;
 }
-.grid img:hover{
+.grid video:hover{
   transform:scale(1.03);
   box-shadow:0 6px 18px #0008;
 }
