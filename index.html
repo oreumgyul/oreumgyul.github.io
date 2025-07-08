@@ -13,28 +13,23 @@
   <!-- NAV -->
   <nav>
     <a href="#home">Home</a>
+    <a href="about.html">About</a>   <!-- 별도 페이지용 -->
     <a href="#work1">Works</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- HERO ─ 절대 건드리지 않는 파트 -->
+  <!-- HERO (unchanged) -->
   <section id="home" class="hero">
-    <!-- 고정 배경 영상 -->
-    <video class="bg-video"
-           src="media/loop.mp4"
-           autoplay loop muted playsinline></video>
+    <video class="bg-video" src="media/loop.mp4" autoplay loop muted playsinline></video>
 
-    <!-- Hero 문구 + 버튼 -->
     <div class="hero-inner">
       <h1><span id="type-target"></span></h1>
       <p>오름결 컴퍼니는 AI 영상‧사진으로<br>브랜드를 한 단계 끌어올립니다.</p>
-      <button class="btn" onclick="location.href='contact.html'">
-        프로젝트 문의하기
-      </button>
+      <button class="btn" onclick="location.href='contact.html'">프로젝트 문의하기</button>
     </div>
   </section>
 
-  <!-- WORKS ─ 스크롤 한 번에 1 작품씩 -->
+  <!-- WORKS ─ 한 장씩 -->
   <div class="works-wrapper">
     <section id="work1" class="work"><video src="media/work1.mp4" muted loop playsinline controls></video></section>
     <section id="work2" class="work"><video src="media/work2.mp4" muted loop playsinline controls></video></section>
@@ -47,16 +42,11 @@
   <!-- FOOTER -->
   <footer>© 2025 Oremgyeol Company. All rights reserved.</footer>
 
-  <!-- Hero 타이핑 효과 -->
   <script>
-    new Typed('#type-target', {
-      strings: ['Lift Your Brand', 'with AI Creativity'],
-      typeSpeed: 70,
-      backSpeed: 40,
-      backDelay: 1200,
-      loop: true
+    new Typed('#type-target',{
+      strings:['Lift Your Brand','with AI Creativity'],
+      typeSpeed:70,backSpeed:40,backDelay:1200,loop:true
     });
   </script>
 </body>
 </html>
-
