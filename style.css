@@ -1,22 +1,22 @@
 /* === 베이스 & 컬러 === */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Inter:wght@400;700&display=swap');
 :root{
-  --accent:#ff7a5c;   /* 버튼·링크 컬러 */
-  --bg-works:#111;    /* Works 배경 */
+  --accent:#ff7a5c;
+  --bg-works:#111;
+  --bg-about:#121212;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans KR','Inter',sans-serif;color:#f5f5f5;background:#000;scroll-behavior:smooth;}
-html{scroll-snap-type:y mandatory;}         /* Hero + Works 한 장씩 */
+html{scroll-snap-type:y mandatory;}
 
 /* === NAV === */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;
-     display:flex;justify-content:center;gap:40px;
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:center;gap:40px;
      padding:18px 0;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);}
 nav a{color:#eee;text-decoration:none;font-weight:600;position:relative;}
 nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--accent);transition:.3s;}
 nav a:hover{color:#fff;}nav a:hover::after{width:100%;}
 
-/* === HERO === */
+/* === HERO (홈) === */
 .hero{height:100vh;position:relative;scroll-snap-align:start;overflow:hidden;}
 .bg-video{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:brightness(.45);z-index:-2;}
 .hero-inner{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
@@ -25,12 +25,37 @@ nav a:hover{color:#fff;}nav a:hover::after{width:100%;}
 .btn{padding:16px 40px;border:none;border-radius:50px;font-size:1.1rem;color:#fff;background:var(--accent);cursor:pointer;transition:.25s;}
 .btn:hover{transform:translateY(-3px);opacity:.9;}
 
+/* === ABOUT 페이지 전용 === */
+.about-hero{height:60vh;position:relative;overflow:hidden;background:#000;}
+.about-hero .bg-video{filter:brightness(.35);}
+.about-hero-inner{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 24px;}
+.about-hero-inner h1{font-size:clamp(2.6rem,6vw,4rem);line-height:1.2;background:linear-gradient(90deg,#ff996e,#ffcc70);-webkit-background-clip:text;color:transparent;margin-bottom:20px;}
+.about-hero-inner p{font-size:1.1rem;color:#e0e0e0;}
+
+.about-section{scroll-snap-align:center;min-height:100vh;padding:120px 24px;background:var(--bg-about);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.about-section h2{font-size:2.4rem;margin-bottom:40px;font-weight:700;}
+
+.mission p{font-size:1.1rem;line-height:1.6;max-width:800px;color:#ddd;}
+
+.strengths{gap:32px;flex-wrap:wrap;}
+.strengths .card{background:#1d1d1d;border-radius:16px;padding:40px;width:280px;box-shadow:0 6px 18px #0006;}
+.strengths .card h3{font-size:1.25rem;margin-bottom:16px;background:linear-gradient(90deg,#ff996e,#ffcc70);-webkit-background-clip:text;color:transparent;}
+.strengths .card p{font-size:.95rem;color:#ccc;line-height:1.5;}
+
+.numbers{flex-direction:row;gap:80px;background:#0e0e0e;}
+.numbers div{text-align:center;}
+.numbers span{display:block;font-size:3rem;font-weight:700;color:var(--accent);}
+.numbers p{font-size:.95rem;color:#ccc;}
+
+.cta{background:#000;gap:32px;}
+.cta h2{font-size:2rem;line-height:1.4;}
+/* 버튼은 기존 .btn 재사용 */
+
 /* === WORKS === */
 .works-wrapper{scroll-snap-type:y mandatory;}
-.work{scroll-snap-align:center;min-height:100vh;padding:120px 0;background:rgba(17,17,17,.85);text-align:center;}
+.work{scroll-snap-align:center;min-height:100vh;padding:120px 0;background:var(--bg-works);text-align:center;}
 .work video{width:90%;max-width:960px;aspect-ratio:16/9;border-radius:16px;object-fit:cover;box-shadow:0 8px 24px #000a;transition:.35s;}
 .work video:hover{transform:scale(1.03);box-shadow:0 12px 32px #000e;}
 
 /* === FOOTER === */
 footer{text-align:center;padding:20px 0;font-size:.85rem;background:#0006;}
-
