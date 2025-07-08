@@ -1,28 +1,51 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>오름결 컴퍼니</title>
-    <style>
-      body { font-family: sans-serif; text-align: center; margin-top: 15vh; }
-      h1   { color: #ff7a5c; }
-      button { padding: 10px 22px; border-radius: 12px; font-size: 1rem; }
-      nav a { margin: 0 6px; text-decoration: none; color: #333; } /* 메뉴 링크 살짝 꾸미기 */
-    </style>
-  </head>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>오름결 컴퍼니</title>
 
-  <body>
-    <nav style="margin-top:20px;">
-      <a href="index.html">Home</a> |
-      <a href="about.html">About</a> |
-      <a href="contact.html">Contact</a>
-    </nav>
-    <hr>
+  <!-- ① 공통 CSS -->
+  <link rel="stylesheet" href="style.css">
 
-    <h1>오름결에 오신 걸 환영해요!</h1>
-    <p id="msg">AI 영상·사진 광고 전문가</p>
-    <button onclick="document.getElementById('msg').innerText='문의: hello@oremgyeol.com';">
-      더 알아보기
-    </button>
-  </body>
+  <!-- ② 타이핑 효과용 typed.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+<body>
+
+  <!-- ★ 네비게이션 -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- ★ 히어로 -->
+  <section class="hero">
+    <!-- 배경 영상 -->
+    <video class="bg-video" src="media/loop.mp4" autoplay loop muted playsinline></video>
+
+    <!-- 헤드라인(타이핑될 곳) -->
+    <h1><span id="type-target"></span></h1>
+
+    <!-- 짧은 소개 -->
+    <p>오름결 컴퍼니는 AI 영상‧사진으로<br>브랜드를 한 단계 끌어올립니다.</p>
+
+    <!-- CTA 버튼 -->
+    <button class="btn" onclick="location.href='contact.html'">프로젝트 문의하기</button>
+  </section>
+
+  <!-- ★ 풋터 -->
+  <footer>© 2025 Oremgyeol Company. All rights reserved.</footer>
+
+  <!-- ③ 타이핑 스크립트 실행 -->
+  <script>
+    new Typed('#type-target', {
+      strings: ['Lift Your Brand', 'with AI Creativity'],
+      typeSpeed: 70,
+      backSpeed: 40,
+      backDelay: 1200,
+      loop: true
+    });
+  </script>
+</body>
 </html>
