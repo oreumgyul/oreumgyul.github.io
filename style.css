@@ -1,130 +1,60 @@
-/* ===== 베이스 ===== */
+/* ==== 기본 & 색상 ==== */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Inter:wght@400;700&display=swap');
-
 :root{
-  --accent:#ff7a5c;
-  --bg-grad:#000;   /* 검정 배경 */
+  --accent:#ff855c;
+  --bg-hero:#050505;
+  --bg-portfolio:#121212;
 }
-
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
   font-family:'Noto Sans KR','Inter',sans-serif;
   color:#f5f5f5;
-  background:var(--bg-grad) fixed;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
+  background:#000;
+  scroll-behavior:smooth;
 }
 
-/* ===== 네비 ===== */
+/* ==== 스냅 스크롤 ==== */
+.snap{scroll-snap-align:start;}
+html{scroll-snap-type:y mandatory;}
+
+/* ==== NAV ==== */
 nav{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  gap:32px;
-  padding:24px 0;
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;justify-content:center;gap:40px;
+  padding:18px 0;background:rgba(0,0,0,.4);backdrop-filter:blur(6px);
 }
-nav a{
-  color:#ddd;
-  text-decoration:none;
-  font-weight:600;
-  position:relative;
-}
-nav a::after{
-  content:"";
-  position:absolute;left:0;bottom:-6px;
-  width:0;height:2px;background:var(--accent);
-  transition:.3s;
-}
-nav a:hover{color:#fff;}
-nav a:hover::after{width:100%;}
+nav a{color:#eee;text-decoration:none;font-weight:600;position:relative;}
+nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--accent);transition:.3s;}
+nav a:hover{color:#fff;}nav a:hover::after{width:100%;}
 
-/* ===== 히어로 & 배경 영상 ===== */
+/* ==== HERO ==== */
 .hero{
-  position:relative;
-  height:100vh;                 /* 화면 1장만 사용 */
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:0 16px;
-  overflow:hidden;
-  animation:fadeIn 1s ease-out;
+  height:100vh;position:relative;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  background:var(--bg-hero);
 }
-.bg-video{
-  position:absolute;
-  top:0;left:0;
-  width:100%;height:100%;
-  object-fit:cover;
-  filter:brightness(.35);
-  z-index:-1;
-}
-.hero h1{
-  font-size:clamp(2.8rem,6vw,4.5rem);
-  line-height:1.1;
-  margin-bottom:24px;
-  color:#fff;
-  white-space:pre;
-}
-.hero p{
-  font-size:1.25rem;
-  max-width:600px;
-  margin-bottom:32px;
-  color:#e0e0e0;
-}
-.btn{
-  padding:14px 36px;
-  background:var(--accent);
-  border:none;
-  border-radius:50px;
-  color:#fff;
-  font-size:1.1rem;
-  cursor:pointer;
-  transition:.25s;
-}
+.bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.35);z-index:-1;}
+.hero h1{font-size:clamp(3rem,7vw,5rem);margin-bottom:24px;background:linear-gradient(90deg,#ff996e,#ffcc70);-webkit-background-clip:text;color:transparent;}
+.hero p{font-size:1.25rem;max-width:640px;margin-bottom:36px;color:#e1e1e1;}
+.btn{padding:16px 40px;border:none;border-radius:50px;font-size:1.1rem;color:#fff;background:var(--accent);cursor:pointer;transition:.25s;}
 .btn:hover{transform:translateY(-3px);opacity:.9;}
 
-/* ===== 포트폴리오 ===== */
+/* ==== PORTFOLIO ==== */
 .portfolio{
-  padding:80px 24px;
-  background:#111;
-  text-align:center;
+  min-height:100vh;padding:100px 0 60px;
+  background:var(--bg-portfolio);display:flex;flex-direction:column;align-items:center;justify-content:center;
 }
-.portfolio h2{
-  font-size:2rem;
-  margin-bottom:40px;
-  color:#fff;
+.portfolio h2{font-size:2.4rem;margin-bottom:50px;font-weight:700;}
+.carousel{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:32px;max-width:1400px;padding:0 24px;
 }
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:24px;
-  max-width:1200px;
-  margin:0 auto;
+.carousel video{
+  width:100%;aspect-ratio:16/9;border-radius:16px;object-fit:cover;
+  box-shadow:0 8px 24px #000a;transition:.4s;
 }
-.grid video{
-  width:100%;
-  aspect-ratio:16/9;
-  object-fit:cover;
-  border-radius:12px;
-  transition:.3s;
-}
-.grid video:hover{
-  transform:scale(1.03);
-  box-shadow:0 6px 18px #0008;
-}
+.carousel video:hover{transform:scale(1.05);box-shadow:0 12px 32px #000e;}
 
-/* ===== 풋터 ===== */
-footer{
-  text-align:center;
-  padding:16px 0;
-  font-size:.9rem;
-  background:#0006;
-}
+/* ==== FOOTER ==== */
+footer{text-align:center;padding:20px 0;font-size:.85rem;background:#0006;}
 
-/* ===== 애니메이션 ===== */
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(20px);}
-  to  {opacity:1;transform:none;}
-}
