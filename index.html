@@ -13,13 +13,12 @@
   <!-- ── NAV ── -->
   <nav>
     <a href="#home">Home</a>
-    <a href="#portfolio">Works</a>
+    <a href="#work1">Works</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- ── HERO ── -->
+  <!-- ── HERO (절대 변경 X) ── -->
   <section id="home" class="hero">
-    <!-- 배경 영상 -->
     <video class="bg-video"
            src="media/loop.mp4"
            autoplay loop muted playsinline></video>
@@ -31,31 +30,22 @@
     </button>
   </section>
 
-  <!-- ── WORKS ── -->
-  <section id="portfolio" class="portfolio">
-    <h2>Our Works</h2>
-    <div class="grid">
-      <video src="media/work1.mp4" muted loop playsinline controls></video>
-      <video src="media/work2.mp4" muted loop playsinline controls></video>
-      <video src="media/work3.mp4" muted loop playsinline controls></video>
-      <video src="media/work4.mp4" muted loop playsinline controls></video>
-      <video src="media/work5.mp4" muted loop playsinline controls></video>
-      <video src="media/work6.mp4" muted loop playsinline controls></video>
-    </div>
-  </section>
+  <!-- ── WORKS : 한 번 스크롤에 1 작품 ── -->
+  <section id="work1" class="work"><video src="media/work1.mp4" muted loop playsinline controls></video></section>
+  <section id="work2" class="work"><video src="media/work2.mp4" muted loop playsinline controls></video></section>
+  <section id="work3" class="work"><video src="media/work3.mp4" muted loop playsinline controls></video></section>
+  <section id="work4" class="work"><video src="media/work4.mp4" muted loop playsinline controls></video></section>
+  <section id="work5" class="work"><video src="media/work5.mp4" muted loop playsinline controls></video></section>
+  <section id="work6" class="work"><video src="media/work6.mp4" muted loop playsinline controls></video></section>
 
   <!-- ── FOOTER ── -->
   <footer>© 2025 Oremgyeol Company. All rights reserved.</footer>
 
   <script>
-    new Typed('#type-target', {
-      strings: ['Lift Your Brand', 'with AI Creativity'],
-      typeSpeed: 70,
-      backSpeed: 40,
-      backDelay: 1200,
-      loop: true
+    new Typed('#type-target',{
+      strings:['Lift Your Brand','with AI Creativity'],
+      typeSpeed:70,backSpeed:40,backDelay:1200,loop:true
     });
   </script>
 </body>
 </html>
-
