@@ -1,62 +1,94 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="utf-8" />
-  <title>오름결 컴퍼니</title>
+/* === 기본 & 컬러 === */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Inter:wght@400;700&display=swap');
+:root{
+  --accent:#ff7a5c;      /* 버튼·링크 포인트 컬러 */
+  --bg-works:#111;       /* Works 배경 */
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans KR','Inter',sans-serif;
+  color:#f5f5f5;
+  background:#000;
+  scroll-behavior:smooth;
+}
+html{scroll-snap-type:y mandatory;}          /* Hero + Works 한 장씩 스냅 */
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-</head>
-<body>
+/* === NAV === */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;justify-content:center;gap:40px;
+  padding:18px 0;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);
+}
+nav a{color:#eee;text-decoration:none;font-weight:600;position:relative;}
+nav a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--accent);transition:.3s;}
+nav a:hover{color:#fff;}nav a:hover::after{width:100%;}
 
-  <!-- NAV -->
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#work1">Works</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+/* === HERO === */
+.hero{
+  height:100vh;
+  position:relative;
+  scroll-snap-align:start;
+  overflow:hidden;
+}
+/* 고정 배경 영상 */
+.bg-video{
+  position:fixed;               /* 화면 전체에 고정 */
+  top:0;left:0;width:100%;height:100%;
+  object-fit:cover;
+  filter:brightness(.45);
+  z-index:-2;                   /* 페이지 맨 뒤 */
+}
+/* Hero 안쪽 내용(문구·버튼)만 중앙 배치 */
+.hero-inner{
+  position:relative;z-index:1;
+  height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;
+}
+.hero-inner h1{
+  font-size:clamp(3rem,7vw,5rem);
+  margin-bottom:24px;
+  background:linear-gradient(90deg,#ff996e,#ffcc70);
+  -webkit-background-clip:text;color:transparent;
+}
+.hero-inner p{
+  font-size:1.25rem;max-width:640px;margin-bottom:36px;color:#e1e1e1;
+}
+.btn{
+  padding:16px 40px;border:none;border-radius:50px;font-size:1.1rem;
+  color:#fff;background:var(--accent);cursor:pointer;transition:.25s;
+}
+.btn:hover{transform:translateY(-3px);opacity:.9;}
 
-  <!-- HERO ─ 절대 건드리지 않는 파트 -->
-  <section id="home" class="hero">
-    <!-- 고정 배경 영상 -->
-    <video class="bg-video"
-           src="media/loop.mp4"
-           autoplay loop muted playsinline></video>
+/* === WORKS === */
+.works-wrapper{scroll-snap-type:y mandatory;}  /* 작품 구간에만 스냅 */
+.work{
+  scroll-snap-align:center;
+  min-height:100vh;
+  padding:120px 0;
+  background:rgba(17,17,17,.85);
+  text-align:center;
+}
+.work video,
+.work img{
+  width:90%;
+  max-width:960px;
+  aspect-ratio:16/9;
+  border-radius:16px;
+  object-fit:cover;
+  box-shadow:0 8px 24px #000a;
+  transition:.35s;
+}
+.work video:hover,
+.work img:hover{
+  transform:scale(1.03);
+  box-shadow:0 12px 32px #000e;
+}
 
-    <!-- Hero 문구 + 버튼 -->
-    <div class="hero-inner">
-      <h1><span id="type-target"></span></h1>
-      <p>오름결 컴퍼니는 AI 영상‧사진으로<br>브랜드를 한 단계 끌어올립니다.</p>
-      <button class="btn" onclick="location.href='contact.html'">
-        프로젝트 문의하기
-      </button>
-    </div>
-  </section>
-
-  <!-- WORKS ─ 스크롤 한 번에 1 작품씩 -->
-  <div class="works-wrapper">
-    <section id="work1" class="work"><video src="media/work1.mp4" muted loop playsinline controls></video></section>
-    <section id="work2" class="work"><video src="media/work2.mp4" muted loop playsinline controls></video></section>
-    <section id="work3" class="work"><video src="media/work3.mp4" muted loop playsinline controls></video></section>
-    <section id="work4" class="work"><video src="media/work4.mp4" muted loop playsinline controls></video></section>
-    <section id="work5" class="work"><video src="media/work5.mp4" muted loop playsinline controls></video></section>
-    <section id="work6" class="work"><video src="media/work6.mp4" muted loop playsinline controls></video></section>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>© 2025 Oremgyeol Company. All rights reserved.</footer>
-
-  <!-- Hero 타이핑 효과 -->
-  <script>
-    new Typed('#type-target', {
-      strings: ['Lift Your Brand', 'with AI Creativity'],
-      typeSpeed: 70,
-      backSpeed: 40,
-      backDelay: 1200,
-      loop: true
-    });
-  </script>
-</body>
-</html>
+/* === FOOTER === */
+footer{
+  text-align:center;
+  padding:20px 0;
+  font-size:.85rem;
+  background:#0006;
+}
 
