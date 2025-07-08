@@ -1,9 +1,9 @@
 /* === 베이스 & 컬러 === */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Inter:wght@400;700&display=swap');
 :root{
-  --accent:#ff7a5c;      /* 버튼·링크 포인트 컬러 */
-  --bg-hero:#000;        /* Hero 배경 */
-  --bg-works:#111;       /* Works 섹션 배경 */
+  --accent:#ff7a5c;   /* 버튼·링크 색 */
+  --bg-hero:#000;     /* Hero 배경(투명은 아래서 처리) */
+  --bg-works:#111;    /* Works 배경 */
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
@@ -12,8 +12,9 @@ body{
   background:#000;
   scroll-behavior:smooth;
 }
+html{scroll-snap-type:y mandatory;}          /* 한 장씩 스냅 */
 
-/* === NAV === */
+/* === NAV === (기존 그대로) */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:50;
   display:flex;justify-content:center;gap:40px;
@@ -23,9 +24,9 @@ nav a{color:#eee;text-decoration:none;font-weight:600;position:relative;}
 nav a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--accent);transition:.3s;}
 nav a:hover{color:#fff;}nav a:hover::after{width:100%;}
 
-/* === HERO === */
+/* === HERO (영상·문구·버튼 유지) === */
 .hero{
- height:100vh;
+  height:100vh;
   position:relative;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
   text-align:center;background:transparent;overflow:hidden;
@@ -34,6 +35,9 @@ nav a:hover{color:#fff;}nav a:hover::after{width:100%;}
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;filter:brightness(.45);z-index:-1;
 }
+/* 글자·버튼을 영상 위로 */
+.hero>*{position:relative;z-index:1;}
+
 .hero h1{
   font-size:clamp(3rem,7vw,5rem);
   margin-bottom:24px;
@@ -49,28 +53,26 @@ nav a:hover{color:#fff;}nav a:hover::after{width:100%;}
 }
 .btn:hover{transform:translateY(-3px);opacity:.9;}
 
-/* === WORKS === */
-.portfolio{
-  padding:100px 24px;
+/* === WORK : 적당히 큰 카드(16:9, 최대 960px) === */
+.work{
+  scroll-snap-align:start;
+  padding:120px 0;
   background:var(--bg-works);
   text-align:center;
 }
-.portfolio h2{
-  font-size:2.4rem;
-  margin-bottom:50px;
-  font-weight:700;
+.work video,
+.work img{
+  width:90%;
+  max-width:960px;                 /* 700~960 px 대역 내부 */
+  aspect-ratio:16/9;
+  border-radius:16px;
+  object-fit:cover;
+  box-shadow:0 8px 24px #000a;
+  transition:.35s;
 }
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:32px;max-width:1400px;margin:0 auto;
-}
-.grid video{
-  width:100%;aspect-ratio:16/9;border-radius:16px;object-fit:cover;
-  box-shadow:0 8px 24px #000a;transition:.4s;
-}
-.grid video:hover{
-  transform:scale(1.05);
+.work video:hover,
+.work img:hover{
+  transform:scale(1.03);
   box-shadow:0 12px 32px #000e;
 }
 
@@ -81,4 +83,5 @@ footer{
   font-size:.85rem;
   background:#0006;
 }
+
 
