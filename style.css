@@ -1,5 +1,6 @@
-/* === 베이스 & 컬러 === */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Inter:wght@400;700&display=swap');
+/* === Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Inter:wght@400;700&family=Poppins:wght@600&display=swap');
+
 :root{
   --accent:#ff7a5c;
   --bg-works:#111;
@@ -16,42 +17,36 @@ nav a{color:#eee;text-decoration:none;font-weight:600;position:relative;}
 nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--accent);transition:.3s;}
 nav a:hover{color:#fff;}nav a:hover::after{width:100%;}
 
-/* === HERO (홈) === */
-.hero{height:100vh;position:relative;scroll-snap-align:start;overflow:hidden;}
+/* === 공통 고정 배경 영상 === */
 .bg-video{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:brightness(.45);z-index:-2;}
+
+/* === HOME 페이지 Hero === */
+.hero{height:100vh;position:relative;scroll-snap-align:start;overflow:hidden;}
 .hero-inner{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
 .hero-inner h1{font-size:clamp(3rem,7vw,5rem);margin-bottom:24px;background:linear-gradient(90deg,#ff996e,#ffcc70);-webkit-background-clip:text;color:transparent;}
 .hero-inner p{font-size:1.25rem;max-width:640px;margin-bottom:36px;color:#e1e1e1;}
 .btn{padding:16px 40px;border:none;border-radius:50px;font-size:1.1rem;color:#fff;background:var(--accent);cursor:pointer;transition:.25s;}
 .btn:hover{transform:translateY(-3px);opacity:.9;}
 
-/* === ABOUT 페이지 전용 === */
-.about-hero{height:60vh;position:relative;overflow:hidden;background:#000;}
-.about-hero .bg-video{filter:brightness(.35);}
-.about-hero-inner{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 24px;}
-.about-hero-inner h1{font-size:clamp(2.6rem,6vw,4rem);line-height:1.2;background:linear-gradient(90deg,#ff996e,#ffcc70);-webkit-background-clip:text;color:transparent;margin-bottom:20px;}
+/* === ABOUT 페이지 Hero === */
+.about-hero{height:60vh;position:relative;overflow:hidden;background:#000;text-align:center;display:flex;justify-content:center;align-items:center;padding-top:60px;}
+.about-hero-inner h1{font-family:'Poppins',sans-serif;font-size:clamp(2.6rem,6vw,4rem);line-height:1.2;background:linear-gradient(90deg,#ff996e,#ffcc70);-webkit-background-clip:text;color:transparent;margin-bottom:20px;}
 .about-hero-inner p{font-size:1.1rem;color:#e0e0e0;}
 
-.about-section{scroll-snap-align:center;min-height:100vh;padding:120px 24px;background:var(--bg-about);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
-.about-section h2{font-size:2.4rem;margin-bottom:40px;font-weight:700;}
+/* === ABOUT 2-Column Section === */
+.about-two-col{min-height:100vh;padding:120px 8vw;background:var(--bg-about);display:flex;flex-direction:row;align-items:center;gap:6vw;scroll-snap-align:center;flex-wrap:wrap;}
+.about-text{flex:1 1 350px;max-width:600px;}
+.about-text h2{font-family:'Poppins',sans-serif;font-size:2.2rem;margin-bottom:24px;}
+.about-text p{line-height:1.6;font-size:1.05rem;margin-bottom:32px;color:#ddd;}
+.badge-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:24px;margin-bottom:40px;padding:0;}
+.badge-list li{text-align:center;background:#1d1d1d;border-radius:12px;padding:24px 12px;}
+.badge-list span{display:block;font-size:1.6rem;font-weight:700;color:var(--accent);}
+.badge-list em{display:block;font-size:.8rem;color:#bbb;margin-top:4px;}
 
-.mission p{font-size:1.1rem;line-height:1.6;max-width:800px;color:#ddd;}
+.about-img{flex:1 1 350px;max-width:600px;text-align:center;}
+.about-img img{width:100%;border-radius:16px;box-shadow:0 12px 32px #000c;object-fit:cover;}
 
-.strengths{gap:32px;flex-wrap:wrap;}
-.strengths .card{background:#1d1d1d;border-radius:16px;padding:40px;width:280px;box-shadow:0 6px 18px #0006;}
-.strengths .card h3{font-size:1.25rem;margin-bottom:16px;background:linear-gradient(90deg,#ff996e,#ffcc70);-webkit-background-clip:text;color:transparent;}
-.strengths .card p{font-size:.95rem;color:#ccc;line-height:1.5;}
-
-.numbers{flex-direction:row;gap:80px;background:#0e0e0e;}
-.numbers div{text-align:center;}
-.numbers span{display:block;font-size:3rem;font-weight:700;color:var(--accent);}
-.numbers p{font-size:.95rem;color:#ccc;}
-
-.cta{background:#000;gap:32px;}
-.cta h2{font-size:2rem;line-height:1.4;}
-/* 버튼은 기존 .btn 재사용 */
-
-/* === WORKS === */
+/* === WORKS (홈) === */
 .works-wrapper{scroll-snap-type:y mandatory;}
 .work{scroll-snap-align:center;min-height:100vh;padding:120px 0;background:var(--bg-works);text-align:center;}
 .work video{width:90%;max-width:960px;aspect-ratio:16/9;border-radius:16px;object-fit:cover;box-shadow:0 8px 24px #000a;transition:.35s;}
@@ -59,3 +54,4 @@ nav a:hover{color:#fff;}nav a:hover::after{width:100%;}
 
 /* === FOOTER === */
 footer{text-align:center;padding:20px 0;font-size:.85rem;background:#0006;}
+
