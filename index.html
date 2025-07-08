@@ -5,17 +5,20 @@
     <title>오름결 컴퍼니</title>
     <style>
       body { font-family: sans-serif; text-align: center; margin-top: 15vh; }
-<nav style="margin-top:20px;">
-  <a href="index.html">Home</a> |
-  <a href="about.html">About</a> |
-  <a href="contact.html">Contact</a>
-</nav>
-<hr>
-      h1 { color: #ff7a5c; }
+      h1   { color: #ff7a5c; }
       button { padding: 10px 22px; border-radius: 12px; font-size: 1rem; }
+      nav a { margin: 0 6px; text-decoration: none; color: #333; } /* 메뉴 링크 살짝 꾸미기 */
     </style>
   </head>
+
   <body>
+    <nav style="margin-top:20px;">
+      <a href="index.html">Home</a> |
+      <a href="about.html">About</a> |
+      <a href="contact.html">Contact</a>
+    </nav>
+    <hr>
+
     <h1>오름결에 오신 걸 환영해요!</h1>
     <p id="msg">AI 영상·사진 광고 전문가</p>
     <button onclick="document.getElementById('msg').innerText='문의: hello@oremgyeol.com';">
