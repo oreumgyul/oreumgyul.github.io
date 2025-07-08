@@ -3,22 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <title>오름결 컴퍼니</title>
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- ── NAV ── -->
   <nav>
     <a href="#home">Home</a>
     <a href="#portfolio">Works</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- HERO -->
+  <!-- ── HERO ── -->
   <section id="home" class="hero">
-    <video class="bg-video" src="media/loop.mp4"
+    <!-- 배경 영상 -->
+    <video class="bg-video"
+           src="media/loop.mp4"
            autoplay loop muted playsinline></video>
 
     <h1><span id="type-target"></span></h1>
@@ -28,7 +31,7 @@
     </button>
   </section>
 
-  <!-- WORKS : 한 화면에 큰 카드 형태 -->
+  <!-- ── WORKS ── -->
   <section id="portfolio" class="portfolio">
     <h2>Our Works</h2>
     <div class="grid">
@@ -41,13 +44,18 @@
     </div>
   </section>
 
+  <!-- ── FOOTER ── -->
   <footer>© 2025 Oremgyeol Company. All rights reserved.</footer>
 
   <script>
-    new Typed('#type-target',{
-      strings:['Lift Your Brand','with AI Creativity'],
-      typeSpeed:70,backSpeed:40,backDelay:1200,loop:true
+    new Typed('#type-target', {
+      strings: ['Lift Your Brand', 'with AI Creativity'],
+      typeSpeed: 70,
+      backSpeed: 40,
+      backDelay: 1200,
+      loop: true
     });
   </script>
 </body>
 </html>
+
