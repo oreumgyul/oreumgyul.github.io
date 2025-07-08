@@ -1,38 +1,87 @@
-/* 기본 글꼴 & 레이아웃 */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  text-align: center;
-  margin-top: 10vh;
-  color: #333;
+/* ===== 베이스 ===== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Inter:wght@400;700&display=swap');
+
+:root{
+  --accent:#ff7a5c;
+  --bg-grad:linear-gradient(135deg,#0f0c29,#302b63 45%,#24243e);
 }
 
-/* 메뉴바 */
-nav {
-  margin-bottom: 10px;
-}
-nav a {
-  margin: 0 8px;
-  text-decoration: none;
-  color: #555;
-  font-weight: 600;
-}
-nav a:hover {
-  color: #ff7a5c;
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans KR','Inter',sans-serif;
+  color:#f5f5f5;
+  background:var(--bg-grad) fixed;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
-/* 헤드라인 & 버튼 */
-h1 {
-  color: #ff7a5c;
+/* ===== 네비 ===== */
+nav{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:32px;
+  padding:24px 0;
 }
-button {
-  padding: 10px 24px;
-  border: none;
-  border-radius: 12px;
-  font-size: 1rem;
-  cursor: pointer;
-  background: #ff7a5c;
-  color: #fff;
+nav a{
+  color:#ddd;
+  text-decoration:none;
+  font-weight:600;
+  position:relative;
 }
-button:hover {
-  opacity: 0.9;
+nav a::after{
+  content:"";
+  position:absolute;left:0;bottom:-6px;
+  width:0;height:2px;background:var(--accent);
+  transition:.3s;
 }
+nav a:hover{color:#fff;}
+nav a:hover::after{width:100%;}
+
+/* ===== 히어로 ===== */
+.hero{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  animation:fadeIn 1s ease-out;
+}
+.hero h1{
+  font-size:clamp(2.5rem,6vw,4.5rem);
+  line-height:1.1;
+  background:linear-gradient(90deg,#ff835e,#ffd36c);
+  -webkit-background-clip:text;
+  color:transparent;
+  margin-bottom:24px;
+}
+.hero p{
+  font-size:1.25rem;
+  max-width:600px;
+  margin-bottom:32px;
+  color:#e0e0e0;
+}
+.btn{
+  padding:14px 36px;
+  background:var(--accent);
+  border:none;
+  border-radius:50px;
+  color:#fff;
+  font-size:1.1rem;
+  cursor:pointer;
+  transition:.25s;
+}
+.btn:hover{transform:translateY(-3px);opacity:.9;}
+
+/* ===== 풋터 ===== */
+footer{
+  text-align:center;
+  padding:16px 0;
+  font-size:.9rem;
+  background:#0006;
+}
+
+/* ===== 애니메이션 ===== */
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
