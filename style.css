@@ -3,8 +3,7 @@
 
 :root{
   --accent:#ff7a5c;
-  /* ▼ 여기만 수정 */
-  --bg-grad:#000;   /* 완전 검정 배경 */
+  --bg-grad:#000;                 /* 검정 배경 */
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -86,6 +85,36 @@ nav a:hover::after{width:100%;}
 }
 .btn:hover{transform:translateY(-3px);opacity:.9;}
 
+/* ===== 포트폴리오 ===== */
+.portfolio{
+  padding:80px 24px;
+  background:#111;
+  text-align:center;
+}
+.portfolio h2{
+  font-size:2rem;
+  margin-bottom:40px;
+  color:#fff;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.grid img{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:12px;
+  transition:.3s;
+}
+.grid img:hover{
+  transform:scale(1.03);
+  box-shadow:0 6px 18px #0008;
+}
+
 /* ===== 풋터 ===== */
 footer{
   text-align:center;
@@ -97,5 +126,5 @@ footer{
 /* ===== 애니메이션 ===== */
 @keyframes fadeIn{
   from{opacity:0;transform:translateY(20px);}
-  to{opacity:1;transform:none;}
+  to  {opacity:1;transform:none;}
 }
