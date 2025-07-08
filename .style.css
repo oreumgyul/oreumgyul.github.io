@@ -1,0 +1,38 @@
+/* 기본 글꼴 & 레이아웃 */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  margin-top: 10vh;
+  color: #333;
+}
+
+/* 메뉴바 */
+nav {
+  margin-bottom: 10px;
+}
+nav a {
+  margin: 0 8px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+}
+nav a:hover {
+  color: #ff7a5c;
+}
+
+/* 헤드라인 & 버튼 */
+h1 {
+  color: #ff7a5c;
+}
+button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #ff7a5c;
+  color: #fff;
+}
+button:hover {
+  opacity: 0.9;
+}
