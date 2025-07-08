@@ -3,7 +3,8 @@
 
 :root{
   --accent:#ff7a5c;
-  --bg-grad:linear-gradient(135deg,#0f0c29,#302b63 45%,#24243e);
+  /* ▼ 여기만 수정 */
+  --bg-grad:#000;   /* 완전 검정 배경 */
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -41,7 +42,7 @@ nav a:hover::after{width:100%;}
 
 /* ===== 히어로 & 배경 영상 ===== */
 .hero{
-  position:relative;          /* 영상 고정용 */
+  position:relative;
   flex:1;
   display:flex;
   flex-direction:column;
@@ -58,7 +59,7 @@ nav a:hover::after{width:100%;}
   width:100%;height:100%;
   object-fit:cover;
   filter:brightness(.35);
-  z-index:-1;                 /* 글자 뒤로 */
+  z-index:-1;
 }
 .hero h1{
   font-size:clamp(2.8rem,6vw,4.5rem);
@@ -98,4 +99,3 @@ footer{
   from{opacity:0;transform:translateY(20px);}
   to{opacity:1;transform:none;}
 }
-
