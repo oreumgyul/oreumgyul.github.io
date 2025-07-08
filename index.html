@@ -1,33 +1,57 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="utf-8" />
-  <title>오름결 컴퍼니</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+ <!-- 공통 CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- 타이핑 효과용 typed.js -->
+  <!-- 타이핑 효과 -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
 
-  <!-- ── NAV ── -->
+  <!-- 네비게이션 -->
   <nav>
-    <a href="#home">Home</a>
-    <a href="#work1">Works</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="#portfolio">Works</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- ── HERO ── -->
-  <section id="home" class="hero snap">
+  <!-- 히어로 섹션 -->
+  <!-- 히어로 -->
+  <section class="hero">
+    <!-- 배경 영상 (media/loop.mp4 경로 유지) -->
     <video class="bg-video" src="media/loop.mp4" autoplay loop muted playsinline></video>
+
+    <!-- 타이핑 헤드라인 -->
     <h1><span id="type-target"></span></h1>
+
+    <!-- 짧은 소개 -->
     <p>오름결 컴퍼니는 AI 영상‧사진으로<br>브랜드를 한 단계 끌어올립니다.</p>
+
+    <!-- CTA 버튼 -->
     <button class="btn" onclick="location.href='contact.html'">프로젝트 문의하기</button>
   </section>
 
-  <!-- ── WORK SECTIONS (풀스크린 영상) ── -->
-  <section id="work1" class="work snap">
-    <video src="media/work1.mp4" autoplay loop muted playsinline></video>
-  </section>
+  <!-- 풋터 -->
+  <footer>© 2025 Oremgyeol Company. All rights reserved.</footer>
 
-  <section id="work2" class="work snap">
-    <video src="media/work2.mp4
+  <!-- 타이핑 스크립트 실행 -->
+  <script>
+    new Typed('#type-target', {
+      strings: ['Lift Your Brand', 'with AI Creativity'],
+      typeSpeed: 70,
+      backSpeed: 40,
+      backDelay: 1200,
+      loop: true
+    });
+  </script>
+</body>
+</html>
+  <!-- 포트폴리오 -->
+  <section id="portfolio" class="portfolio">
+    <h2>Our Works</h2>
+    <div class="grid">
+      <a href="media/work1.mp4"   target="_blank"><img src="media/work1-thumb.jpg"   alt="Work1"></a>
+      <a href="media/work2.mp4"   target="_blank"><img src="media/work2-thumb.jpg"   alt="Work2"></a>
+      <a href="media/work3.mp4"   target="_blank"><img src="media/work3-thumb.jpg"   alt="Work3"></a>
+      <a href="media/work4.mp4"   target="_blank"><img src="media/work4-thumb.jpg"   alt="Work4"></a>
+      <a href="media/work5.mp4"   target="_blank"><img src="media/wor_
