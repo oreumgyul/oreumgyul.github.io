@@ -1,67 +1,35 @@
-/* === Fonts === */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Inter:wght@400;700&family=Poppins:wght@600&display=swap');
-
+/* === 베이스 & 컬러 === */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Inter:wght@400;700&display=swap');
 :root{
-  --accent:#ff7a5c;
-  --bg-works:#111;
-  --bg-contact:#0f0f0f;
+  --accent:#ff7a5c;   /* 버튼·링크 컬러 */
+  --bg-works:#111;    /* Works 배경 */
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans KR','Inter',sans-serif;color:#f5f5f5;background:#000;scroll-behavior:smooth;}
-html{scroll-snap-type:y mandatory;}
+html{scroll-snap-type:y mandatory;}         /* Hero + Works 한 장씩 */
 
 /* === NAV === */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:center;gap:40px;
+nav{position:fixed;top:0;left:0;right:0;z-index:50;
+     display:flex;justify-content:center;gap:40px;
      padding:18px 0;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);}
 nav a{color:#eee;text-decoration:none;font-weight:600;position:relative;}
 nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--accent);transition:.3s;}
 nav a:hover{color:#fff;}nav a:hover::after{width:100%;}
 
-/* === 고정 배경 영상 === */
+/* === HERO === */
+.hero{height:100vh;position:relative;scroll-snap-align:start;overflow:hidden;}
 .bg-video{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:brightness(.45);z-index:-2;}
-
-/* === 글로벌 버튼 === */
+.hero-inner{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.hero-inner h1{font-size:clamp(3rem,7vw,5rem);margin-bottom:24px;background:linear-gradient(90deg,#ff996e,#ffcc70);-webkit-background-clip:text;color:transparent;}
+.hero-inner p{font-size:1.25rem;max-width:640px;margin-bottom:36px;color:#e1e1e1;}
 .btn{padding:16px 40px;border:none;border-radius:50px;font-size:1.1rem;color:#fff;background:var(--accent);cursor:pointer;transition:.25s;}
 .btn:hover{transform:translateY(-3px);opacity:.9;}
 
-/* === CONTACT PAGE === */
-.contact-section{
-  min-height:100vh;
-  padding:0 24px;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  text-align:center;
-  background:rgba(15,15,15,.85);   /* 배경 톤 + 투명 */
-  scroll-snap-align:center;
-}
-.contact-section h1{
-  font-family:'Poppins',sans-serif;
-  font-size:2.6rem;
-  margin-bottom:60px;
-}
-.contact-list{
-  list-style:none;padding:0;margin:0 0 60px 0;
-  display:grid;gap:40px;
-}
-.contact-list li{
-  display:flex;flex-direction:column;align-items:center;
-  font-size:1.1rem;
-}
-.contact-list .label{
-  font-weight:700;margin-bottom:6px;color:var(--accent);
-}
-.contact-list a{
-  color:#f5f5f5;text-decoration:none;
-}
-.contact-list a:hover{
-  color:#ffbe9e;text-decoration:underline;
-}
-
-/* === WORKS (홈) 등 기존 섹션은 그대로 === */
+/* === WORKS === */
 .works-wrapper{scroll-snap-type:y mandatory;}
-.work{scroll-snap-align:center;min-height:100vh;padding:120px 0;background:var(--bg-works);text-align:center;}
+.work{scroll-snap-align:center;min-height:100vh;padding:120px 0;background:rgba(17,17,17,.85);text-align:center;}
 .work video{width:90%;max-width:960px;aspect-ratio:16/9;border-radius:16px;object-fit:cover;box-shadow:0 8px 24px #000a;transition:.35s;}
 .work video:hover{transform:scale(1.03);box-shadow:0 12px 32px #000e;}
 
 /* === FOOTER === */
 footer{text-align:center;padding:20px 0;font-size:.85rem;background:#0006;}
-
